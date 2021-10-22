@@ -1,0 +1,193 @@
+<!-- 
+PAM.html
+Pixel Art Maker Project
+Array Bootcamp Fall 2021
+Katie Greenwald 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art Maker</title>
+    <!-- StyleSheets & Java Scripts -->
+    <link rel="stylesheet" href="PAMStyle.css">
+    <script defer src="PAMScript.js"></script>
+    <!-- <script defer src="pikaPort.js"></script-->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- script for the function that makes the instructions webpage pop up when the pam-pic is clicked -->
+    <script>
+        function popUpInstructions() {
+            window.open('instructions.html', 'My Window', 'height= 480 rem,width =640 rem,');
+        };
+
+        function changeImage() {
+            var img = document.createElement('img');
+            img.src = document.getElementById("imgLink").value;
+
+            var a = document.getElementById('aImg').appendChild(a);
+
+            document.getElementById("aImg").src = img.src;
+        }
+    </script>
+
+</head>
+
+<header>
+    <!-- the portraits -->
+    <!-- the link picture loads the "link portrait" picture when clicked as well as several colors -->
+    <img src="link-pic.png" class="link-pic" height="400rem" width="400rem" />
+    <!-- the pam image pops up the instructions as well as loads "Pixel Art Maker" picture and one color -->
+    <img src="pam.png" onclick="popUpInstructions()" class="pam-pic" height="200rem" width="200rem" />
+    <!-- the pika picture loads the "pika portrait" picture when clicked -->
+    <img src="pika-pic.png" class="pika-pic" height="400rem" width="400rem" />
+
+</header>
+<!-- here is where the pictures that are uploaded by the "add image" button are uploaded -->
+<br>
+<img id="myImg" class="myImg" src="#">
+<img id="aImg" class="aImg" src="#">
+
+
+<body>
+
+
+    <br>
+    <br>
+
+
+    <img src="-paint.png" class="paint" height="837rem" width="810rem" />
+    <!-- This div is for the picture container that contains the image gotten from the api -->
+    <div class="picture-container">
+    </div>
+    <!-- this is the background image of the easel and canvas behind the grid -->
+    <img src="paint-pic.png" class="paint-pic" />
+
+    <!-- this is the pika artist gif...originally it was just a non animated png-->
+    <img src="-pika.gif" id="pika" class="pika" height="400rem" width="370rem" />
+
+    <!-- I was considering adding another image behind the pika image before I figured out how to make gifs transparent
+      <img src="-pika.png" class="pika2" height="400rem" width="370rem" /> -->
+    <!-- I think this div was one of my print image attempts-->
+    <div id="output" class="output"></div>
+
+    <!-- This div is for the grid container -->
+    <div class="grid-container" id="target">
+    </div>
+
+
+    <!-- <div class="artbox"> -->
+
+    <!-- This div is for the palette container -->
+    <div id="adiv">
+        <!-- this header helps with the click and drag-->
+        <div id="mydivheader2">Color Palette (click here to move)</div>
+        <div class="container palette-container"></div>
+    </div>
+
+
+
+    <br>
+
+    <!-- Draggable DIV -->
+    <div id="mydiv" class="button-container">
+
+        <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+        <div id="mydivheader">Button Box (click here to move)</div>
+        <!-- fill button-->
+        <br><button class="fill-button aButton"><img src ="-paintBucket.jpg"  height="25rem" width="25rem" /></button>
+        <!--clear button -->
+        <button class="clear-button aButton">Clear</button>
+
+        <br>
+        <!--save and load buttons -->
+        <button class="save-button aButton">Save</button>
+        <button class="load-button aButton">Load Save</button>
+        <br>
+        <!--undo and redo buttons -->
+        <button class="undo-button aButton"> &#8630; </button>
+        <button class="redo-button aButton"> &#8631;</button>
+        <br>
+        <!--load image button  -->
+        <button class="load-picture-button aButton">Load Image</button>
+
+        <!-- <button class="aButton aButton">add image</button> -->
+
+        <!-- <p><a class="btn btn-success" href="javascript:void(0);" onClick="generate();">Screenshot &raquo;</a></p> -->
+        <!-- <input type="button" id="btnSave" value="Save PNG" /> -->
+
+        <!--drop down menue for add image options -->
+        <button class="aButton">
+          <label class="dropdown ">
+              <div class="dd-button">
+               Add Image: 
+              </div>
+              <input type="checkbox" class="dd-input" id="test">              
+              <ul class="dd-menu">
+                <li>
+                <input type='file' /> 
+                </li>
+                
+                <li>
+                 
+                  <input type="text" id="imgLink" value="https://" />
+  
+                  <div onclick="changeImage()" class = "addAnImage"> 
+                   <a href="#"> Add:</a>
+                  </div>
+              
+
+      </li>
+      </ul>
+      </label>
+      <!-- print image button -->
+      </button>
+        <button onclick="takeshot()"> Print Image</button>
+
+        <!-- dropdown button for color inputs-->
+        <br>
+        <button class="aButton">
+      <label class="dropdown ">
+          <div class="dd-button">
+            Colors:
+          </div>
+          <input type="checkbox" class="dd-input" id="test">              
+          <ul class="dd-menu">
+            <li>
+              A Color Picker: <input type="color" id="myColor" class="myColor" />
+            </li>
+            <li>
+             Hexcode: <input type="text" id="hex" value="#" /> 
+            </li>
+          </ul>
+        </label>
+      </button>
+        <!--add color button-->
+        <button class="color-button aButton">Add Color</button>
+        <br>
+
+        <!--size picking and submit buttons -->
+        <br>
+        <form class="size-picker">
+            Width:
+            <input type="number" class="input-height" name="height" min="1" max="50" value="20" /> Height:
+            <input type="number" class="input-width" name="width" min="1" max="50" value="20" />
+            <input type="submit" class="submit-button" value="Submit" />
+
+        </form>
+    </div>
+
+
+</body>
+
+<footer>
+
+    <!--this footer is basically just here to create ground-->
+
+</footer>
+
+</html>

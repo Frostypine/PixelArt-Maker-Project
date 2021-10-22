@@ -1,0 +1,19 @@
+/* 
+instructionStyle.css
+Pixel Art Maker Project
+Array Bootcamp Fall 2021
+Katie Greenwald 
+*/
+
+body {
+    background-image: url("paper2.png");
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.secret {
+    color: rgb(222, 220, 200);
+}
