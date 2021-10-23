@@ -27,8 +27,8 @@ body {
 footer {
     /* top: 20rem;
     left: 0;height: 100%;  position: relative;background-color: rgb(208, 245, 208);*/
-    width: 110%;
-    height: 65rem;
+    width: 550rem;
+    height: 550rem;
     background-image: url("checkG.png");
     padding-top: 10rem;
     z-index: -2;
@@ -110,6 +110,11 @@ footer {
     top: 10rem;
     padding-left: 10rem;
     z-index: 0;
+}
+
+.output {
+    height: 850rem;
+    width: 850rem;
 }
 
 .container {
