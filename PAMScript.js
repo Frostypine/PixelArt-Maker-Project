@@ -17,7 +17,7 @@ const inputWidth = document.querySelector('.input-width');
 const paletteContainer = document.querySelector('.palette-container');
 const fillButton = document.querySelector('.fill-button');
 const clearButton = document.querySelector('.clear-button');
-
+const eraserButton = document.querySelector('.eraser-button');
 const saveButton = document.querySelector('.save-button');
 const loadButton = document.querySelector('.load-button');
 
@@ -53,7 +53,7 @@ var num = paletteColors.length - 1 + count;
 let paintColor = 'red'; //paletteColors[num];//'grey';
 //if the default color is changed you need to change the square background color in the CSS too 
 let defaultColor = ""; //'#EFE4B0'; //'white';
-
+//document.body.style.cursor = crosshair;
 
 
 function upClick() {
@@ -174,6 +174,12 @@ function createColorCircleAndAppend(colorHex) {
 
     colorCircle.addEventListener('click', () => {
         paintColor = colorCircle.style.backgroundColor;
+        //document.body.style.cursor = crosshair;
+    });
+
+    eraserButton.addEventListener('click', () => {
+        paintColor = "";
+
     });
 }
 

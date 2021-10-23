@@ -53,57 +53,93 @@ Katie Greenwald
 <img id="aImg" class="aImg" src="#">
 
 
-<body>
+<body style="cursor: url(paintBrush.png),auto;">
+    <div id="brush">
+
+        <br>
+        <br>
 
 
-    <br>
-    <br>
+        <img src="dpaint.png" class="paint" height="837rem" width="810rem" />
+        <!-- This div is for the picture container that contains the image gotten from the api -->
+        <div class="picture-container">
+        </div>
+        <!-- this is the background image of the easel and canvas behind the grid -->
+        <img src="paint-pic.png" class="paint-pic" />
 
+        <!-- this is the pika artist gif...originally it was just a non animated png-->
+        <img src="dpika.gif" id="pika" class="pika" height="400rem" width="370rem" />
 
-    <img src="dpaint.png" class="paint" height="837rem" width="810rem" />
-    <!-- This div is for the picture container that contains the image gotten from the api -->
-    <div class="picture-container">
-    </div>
-    <!-- this is the background image of the easel and canvas behind the grid -->
-    <img src="paint-pic.png" class="paint-pic" />
-
-    <!-- this is the pika artist gif...originally it was just a non animated png-->
-    <img src="dpika.gif" id="pika" class="pika" height="400rem" width="370rem" />
-
-    <!-- I was considering adding another image behind the pika image before I figured out how to make gifs transparent
+        <!-- I was considering adding another image behind the pika image before I figured out how to make gifs transparent
       <img src="-pika.png" class="pika2" height="400rem" width="370rem" /> -->
-    <!-- I think this div was one of my print image attempts-->
-    <div id="output" class="output" height="850rem" width="850rem"></div>
+        <!-- I think this div was one of my print image attempts-->
+        <div id="output" class="output" height="850rem" width="850rem"></div>
 
-    <!-- This div is for the grid container -->
-    <div class="grid-container" id="target">
-    </div>
-
-
-    <!-- <div class="artbox"> -->
-
-    <!-- This div is for the palette container -->
-    <div id="adiv">
-        <!-- this header helps with the click and drag-->
-        <div id="mydivheader2">Color Palette (click here to move)</div>
-        <div class="container palette-container"></div>
-    </div>
+        <!-- This div is for the grid container -->
+        <div class="grid-container" id="target">
+        </div>
 
 
+        <!-- <div class="artbox"> -->
 
-    <br>
+        <!-- This div is for the palette container -->
+        <div id="adiv">
+            <!-- this header helps with the click and drag-->
+            <div id="mydivheader2">Color Palette (click here to move)</div>
+            <div class="container palette-container"></div>
+        </div>
 
-    <!-- Draggable DIV -->
-    <div id="mydiv" class="button-container">
 
-        <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
-        <div id="mydivheader">Button Box (click here to move)</div>
+
+        <br>
+
+        <!-- Draggable DIV -->
+        <div id="mydiv" class="button-container">
+            <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+            <div id="mydivheader">Button Box (click here to move)</div>
+            <br>
+            <div class="abutton">
+                <div class="cur"></div>
+                <label class="dropdown ">
+              
+      <div class="dd-button cursors abutton">
+      Cursors:
+      </div>
+      <input type="checkbox" class="dd-input" id="test">              
+      <ul class="dd-menu">
+        <li>
+          <select onchange="myFunction(this);" size="5">
+        <option>default</option>
+        <option>cell</option>
+        <option>crosshair</option>
+          <option>pointer</option>
+          <option>none</option>
+      </select>
+        </li>
+        <!-- <li><button onclick="">brush</button></li> -->
+        </ul>
+          </div>
+
+    <script>
+        function myFunction(x) {
+            var whichSelected = x.selectedIndex;
+            document.body.style.cursor = x.options[whichSelected].text;
+        }
+
+        function myBrush() {
+          document.body.style =  "cursor: url(paintBrush.png),auto;";
+        }
+    </script>
+     
         <!-- fill button-->
         <br><button class="fill-button aButton"><img src ="dpaintBucket.jpg"  height="25rem" width="25rem" /></button>
         <!--clear button -->
         <button class="clear-button aButton">Clear</button>
-
-        <br>
+        <!-- eraser button -->
+        <button class="eraser-button aButton"><img src ="deraser.png"  height="22rem" width="30rem" /></button>
+           <br>
+           <br>
+        
         <!--save and load buttons -->
         <button class="save-button aButton">Save</button>
         <button class="load-button aButton">Load Save</button>
@@ -111,8 +147,8 @@ Katie Greenwald
         <!--undo and redo buttons -->
         <button class="undo-button aButton"> &#8630; </button>
         <button class="redo-button aButton"> &#8631;</button>
-        <br>
-        <!--load image button  -->
+        <br> <br>
+        <!--load image button  --> 
         <button class="load-picture-button aButton">Load Image</button>
 
         <!-- <button class="aButton aButton">add image</button> -->
@@ -144,13 +180,13 @@ Katie Greenwald
       </li>
       </ul>
       </label>
-      <!-- print image button -->
-      </button>
-        <button onclick="takeshot()"> Print Image</button>
-
-        <!-- dropdown button for color inputs-->
-        <br>
-        <button class="aButton">
+                <!-- print image button -->
+                </button>
+                <button onclick="takeshot()"> Print Image</button>
+                <br>
+                <!-- dropdown button for color inputs-->
+                <br>
+                <button class="aButton">
       <label class="dropdown ">
           <div class="dd-button">
             Colors:
@@ -166,22 +202,22 @@ Katie Greenwald
           </ul>
         </label>
       </button>
-        <!--add color button-->
-        <button class="color-button aButton">Add Color</button>
-        <br>
+                <!--add color button-->
+                <button class="color-button aButton">Add Color</button>
+                <br>
 
-        <!--size picking and submit buttons -->
-        <br>
-        <form class="size-picker">
-            Width:
-            <input type="number" class="input-height" name="height" min="1" max="50" value="20" /> Height:
-            <input type="number" class="input-width" name="width" min="1" max="50" value="20" />
-            <input type="submit" class="submit-button" value="Submit" />
+                <!--size picking and submit buttons -->
+                <br>
+                <form class="size-picker">
+                    Width:
+                    <input type="number" class="input-height" name="height" min="1" max="50" value="20" /> Height:
+                    <input type="number" class="input-width" name="width" min="1" max="50" value="20" />
+                    <input type="submit" class="submit-button" value="Submit" />
 
-        </form>
-    </div>
+                </form> <br>
+            </div>
 
-
+        </div>
 </body>
 
 <footer>
@@ -189,5 +225,6 @@ Katie Greenwald
     <!--this footer is basically just here to create ground-->
 
 </footer>
+
 
 </html>
