@@ -119,7 +119,7 @@ Katie Greenwald
       </select>
       <!--   </li>
         <li><input type='file' id="cursor-file" /> </li> -->
-        <!-- <li><button onclick="">brush</button></li> -->
+        <!-- <li><button onclick="addBrush()">brush</button></li> -->
         </ul>
           </div>
 
@@ -127,6 +127,9 @@ Katie Greenwald
         function myFunction(x) {
             var whichSelected = x.selectedIndex;
             document.body.style.cursor = x.options[whichSelected].text;
+        }
+        function addBrush (){
+          document.body.style.cursor = "url (paintBrush.png), auto";
         }
 
       

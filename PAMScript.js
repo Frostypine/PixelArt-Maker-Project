@@ -179,6 +179,17 @@ function createColorCircleAndAppend(colorHex) {
 
     eraserButton.addEventListener('click', () => {
         paintColor = "";
+        var cur =
+            `
+        body {
+            cursor: url(deraser.png), auto;
+        }
+`
+        var styleSheet = document.createElement("style")
+        styleSheet.type = "text/css"
+        styleSheet.innerText = cur;
+        document.head.appendChild(styleSheet)
+
 
     });
 }
