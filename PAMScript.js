@@ -283,6 +283,22 @@ z-index: 2;
 
 }
 
+function addCursorStyle() {
+
+    var cur =
+        `
+        body {
+            cursor: url(paintBrush.png), auto;
+        }
+`
+    var styleSheet = document.createElement("style")
+    styleSheet.type = "text/css"
+    styleSheet.innerText = cur;
+    document.head.appendChild(styleSheet)
+
+}
+//
+
 
 //add color function 
 function addColor() {
@@ -456,7 +472,7 @@ function init() {
     //getPorts();
     //takeshot();
     // getImageFromApi();
-
+    addCursorStyle();
 
 }
 

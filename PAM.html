@@ -52,8 +52,9 @@ Katie Greenwald
 <img id="myImg" class="myImg" src="#">
 <img id="aImg" class="aImg" src="#">
 
+<!-- style="cursor: url(paintBrush.png),auto;" -->
 
-<body style="cursor: url(paintBrush.png),auto;">
+<body>
     <div id="brush">
 
         <br>
@@ -113,9 +114,11 @@ Katie Greenwald
         <option>cell</option>
         <option>crosshair</option>
           <option>pointer</option>
+          <option>grab</option>
           <option>none</option>
       </select>
-        </li>
+      <!--   </li>
+        <li><input type='file' id="cursor-file" /> </li> -->
         <!-- <li><button onclick="">brush</button></li> -->
         </ul>
           </div>
@@ -126,9 +129,7 @@ Katie Greenwald
             document.body.style.cursor = x.options[whichSelected].text;
         }
 
-        function myBrush() {
-          document.body.style =  "cursor: url(paintBrush.png),auto;";
-        }
+      
     </script>
      
         <!-- fill button-->

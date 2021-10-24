@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art Maker</title>
+    <!-- StyleSheets & Java Scripts -->
+    <!-- <script defer src="pikaPort.js"></script-->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- script for the function that makes the instructions webpage pop up when the pam-pic is clicked -->
+</head>
+
+<body>
+
+
+    <img id="aimg" clss="aimg" src="#"></img>
+
+    <input type="file" id="myfile" name="myfile"><br><br>
+    <!-- <button onclick="afunc()"> cursor </button> -->
+
+    <br>
+    <script>
+        //this function uploads a file from the users computer on to the canvas 
+        window.addEventListener('load', function() {
+            document.querySelector('input[type="file"]').addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    var img = document.querySelector('.aimg');
+                    img.onload = () => {
+                        URL.revokeObjectURL(img.src); // no longer needed, free memory
+                    }
+
+                    img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+                }
+            });
+        });
+
+        /*  function afunc() {
+              var file = document.getElementById("myfile").myfile;
+
+              document.getElementById("aimg").src = file;
+          }
+
+          
+          function addStyle() {
+              var cur =
+                  `
+                  body {
+                      cursor: crosshair; /* url(paintBrush.png), auto; 
+                  }
+          `
+              var styleSheet = document.createElement("style")
+              styleSheet.type = "text/css"
+              styleSheet.innerText = cur;
+              document.head.appendChild(styleSheet)
+
+          }
+
+
+
+          addStyle();*/
+    </script>
+</body>
+
+
+
+</html>
